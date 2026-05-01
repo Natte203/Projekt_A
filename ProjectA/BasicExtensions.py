@@ -41,6 +41,7 @@ def AugmentRight(A: Matrix, v: Vector) -> Matrix:
     return B
 
 
+
 def MatVecProduct(A: Matrix, v: Vector) -> Vector:
     """
     This function computes the matrix-vector product of a matrix A
@@ -53,7 +54,18 @@ def MatVecProduct(A: Matrix, v: Vector) -> Vector:
 
     :return: a size M Vector y such that y = A.v
     """
-    raise NotImplementedError("MatVecProduct is not implemented!")
+    M = A.M_Rows
+    N = A.N_Cols
+    B = Vector(M)
+    for i in range(M): 
+        Acc = 0
+        for j in range(N):  
+            Acc = Acc + A[i, j] * v[j] 
+        B[i] = Acc
+                
+    return B
+
+    # raise NotImplementedError("MatVecProduct is not implemented!")
 
 
 def MatrixProduct(A: Matrix, B: Matrix) -> Matrix:
