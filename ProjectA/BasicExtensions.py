@@ -80,8 +80,21 @@ def MatrixProduct(A: Matrix, B: Matrix) -> Matrix:
 
     :returns: the M-by-P Matrix A*B.
     """
-    raise NotImplementedError("MatrixProduct is not implemented!")
-
+    M = A.M_Rows
+    N = A.N_Cols
+    P = B.M_Rows
+    Q = B.N_Cols
+    if N == P:
+        C = Matrix(M, Q)
+        for i in range(M):
+            for k in range(Q):
+                Acc = 0
+                for j in range(N):  
+                    Acc = Acc + A[i, j] * B[j, k] 
+                C[i, k] = Acc        
+        return C
+    else:
+        raise ValueError("A and B are not conformable for multiplication!")
 
 def Transpose(A: Matrix) -> Matrix:
     """
