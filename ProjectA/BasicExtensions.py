@@ -106,8 +106,13 @@ def Transpose(A: Matrix) -> Matrix:
     :param A: A M-by-N Matrix.
     :returns: A N-by-M Matrix B such that B = A^T.
     """
-    raise NotImplementedError("Transpose is not implemented!")
-
+    M = A.M_Rows
+    N = A.N_Cols
+    B = Matrix(N, M)
+    for i in range(M):
+        for j in range(N):
+            B[j, i] = A[i, j]
+    return B
 
 def VectorNorm(v: Vector) -> float:
     """
