@@ -124,4 +124,10 @@ def VectorNorm(v: Vector) -> float:
     :param v: An N - dimensional Vector.
     :return: The Euclidean norm of the Vector.
     """
-    raise NotImplementedError("VectorNorm is not implemented!")
+    Acc = 0
+    for i in v:
+        Acc += i * i
+    B = math.sqrt(Acc)
+    return B
+
+        
